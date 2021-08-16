@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <table id="myTable" class="table table-striped" >
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>Auditor</th>
+          <th>Login Time</th>
+          <th>Logout Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of auditUsers">
+          <th scope="row">{{item[1].username}}</th>
+          <td>{{item[1].auditor}}</td>
+          <td>{{item[1].loginTime | date: 'M/d/yy, h:mm a'}}</td>
+          <td>{{item[1].logoutTime | date: 'M/d/yy, h:mm a'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+  <script>
+    $(document).ready(function(){
+        $('#myTable').dataTable();
+    });
+  </script>
+</html>
